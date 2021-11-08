@@ -9,7 +9,7 @@ README [English](README.md) | [中文](README.zh-CN.md)
 
 ## Introduction
 
-A open sourced Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more. Supports Windows,MacOs and Linux.
+A open source Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more. Supports Windows, MacOs and Linux.
 
 ![](imgs/solver_example.gif)
 
@@ -39,7 +39,7 @@ Please check [console version document](https://github.com/bupticybee/TexasSolve
 
 ## Speed benchmark with piosolver
 
-Piosolver and my TexasSolver(console version) run use the same settings (spr=10,flop game) and their result are aligned.
+Piosolver and my TexasSolver(console version) run use the same settings (spr=10, flop game) and their result are aligned.
 
 |                                | Input config                                              | log                                                          | thread number | memory usage | accuracy | converge time |
 | ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ | ------------- | ------------ | -------- | ------------- |
@@ -48,13 +48,13 @@ Piosolver and my TexasSolver(console version) run use the same settings (spr=10,
 
 The compare image of their results is  [here](benchmark/benchmark_outputs/result_compair.png). As you can see their result are very close.
 
-# License
+## License
 
 [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
 > Original Author's Email: icybee@yeah.net
 
-# Q & As
+## Q & As
 
 1. Q: Is the solver really free?
    - A: Yes, for personal users, the solver is completely opensourced and free.
@@ -67,4 +67,26 @@ The compare image of their results is  [here](benchmark/benchmark_outputs/result
 
 4. Q: What framework do you use to write the ui?
    - A: I use QT 5.1.0 (opensourced edition) to build the GUI version. For the console version, I use Mingw + CMake.
+
+## Game Theory Optimal (GTO) Texas Hold'em Poker Theory
+
+Game Theory Optimal (GTO) poker is “an umbrella term players use to describe the holy grail of no-limit holdem playing strategy” (MasterClass). In general, the optimal theory dictates that the player is always making the decision that returns the most profit in the long run. For example, when the player is faced with the decision of check/call, bet, or fold at the start of every hand, there are different hand combinations (A,A , K,K , A,K , etc.) which each have an associated win percentage. With the following GTO, the player will have a range, a number of the different hand combinations that they will call or raise with. Any hand not within their range, they will fold. But GTO does not mean one should always follow the statistics. In a heads-up game, with only two players, one should win more often than not strictly following the statistics, but in reality this rarely happens.
+
+When playing against a human, one must factor in a certain amount of randomness and consider the various strategies they could be using. “You have some idea of what the strategy would be with various hands, and your job is to take that into account when executing your own strategy. In other words, play the player. This is what GTO poker is all about” (Yakovenko). But “as you adjust your strategy to an opponent’s strategy, he or she will adjust to yours, and so forth” (Yakovenko). This creates an endless cycle of readjusting your strategy to counter your opponent’s strategy. In games with more than two players, it is near impossible to find an optimal strategy for every situation. In a heads-up, two player game, it is possible to find a GTO equilibrium where “an opponent cannot exploit – or atleast cannot exploit beyond a 1% edge – with any other possible strategy” (Yakovenko). “A group of scientists from The University of Alberta… [declared they] found a way to ‘solve’ the game” (Angioni) in 2015 when they found one possible GTO equilibrium for heads-up limit Texas holdem.
+
+They used 200 computers and had a program play “uniform games against itself” for 70 days in order to train, learning “every possible move in the game” (Angioni), stopping when they “can’t tell it apart from being perfect” (Angioni). One of their major conclusions, other than finding AI that can perform GTO poker consistently, was that the researchers “can now prove that the dealer has an advantage of what we call ‘88 millablinds’ per game, or .088 of a big blind per game” (Angioni). While that discovery in itself is significant, it is also important to consider that now other questions about poker theory that require an environment with an AI that can play perfectly can be explored.
+
+GTO poker theory relates to the game theory portion of class. Each individual at the tables has a series of decisions to make, based on a set number of cards, variables. Their odds of winning, which could also be see as profit like in some of the class examples, are affected by the decisions of themselves, and others at the tables. Poker is also similar to the auction theory we discussed in class, specifically a first-price auction, as each player is putting in a bid each round, at the value they assigned to their current hand, for the overall pot.
+
+Poker Range (of possible 2-card hands)
+
+![Card Matrix](https://cpb-us-e1.wpmucdn.com/blogs.cornell.edu/dist/a/1688/files/2021/11/Hand-range-1.png)
+
+## Citations
+
+- [Yakovenko, Nikolai. “Game Theory Optimal Solutions and Poker: A Few Thoughts on GTO Poker.” PokerNews, PokerNews, 8 May 2020](https://www.pokernews.com/strategy/game-theory-optimal-solutions-and-poker-a-few-thoughts-22654.htm#:~:text=GTO%20)
+
+- [Angioni, Giovanni. “Five Scientists Claim They Have Solved Heads-Up Limit Texas Hold’em.” PokerNews, PokerNews, 10 Jan. 2015](https://www.pokernews.com/news/2015/01/five-scientists-claim-they-have-solved-poker-20261.htm)
+
+- [MasterClass Staff. “Learn About Poker: What Is GTO (Game Theory Optimal)? – 2021.” MasterClass, MasterClass, 3 Sept. 2021](https://www.masterclass.com/articles/learn-about-poker-what-is-gto-game-theory-optimal#what-is-gto-poker)
 
