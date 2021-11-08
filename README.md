@@ -1,4 +1,4 @@
-# CPP Texas Solver
+# Texas Hold'em Solver
 
 [![release](https://img.shields.io/github/v/release/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/releases)
 [![license](https://img.shields.io/github/license/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/blob/master/LICENSE)
@@ -7,14 +7,15 @@
 
 README [English](README.md) | [中文](README.zh-CN.md)
 
-## Introduction 
+## Introduction
+
 A open sourced Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more. Supports Windows,MacOs and Linux.
 
 ![](imgs/solver_example.gif)
 
 Features:
 
-- In a tree with 1~2bets + allin, it's speed exceeds piosolver on flop
+- In a tree with 1~2 bets + allin, it's speed exceeds piosolver on flop
 - Support Mac, Linux and Windows
 - Support texas holdem and shortdeck
 - Support cross language calls
