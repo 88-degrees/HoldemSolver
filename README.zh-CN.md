@@ -47,15 +47,13 @@ Features:
 
 对齐结果的图片见 [result_compair](benchmark/benchmark_outputs/result_compair.png). 如你所见，两者的结果非常接近。
 
-# License
+## License
 
 [GNU AGPL v3](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
-# Email
+> 原作者的Email：icybee@yeah.net
 
-icybee@yeah.net
-
-# 常见问题
+## 常见问题
 
 1. 问: 这个Solver真的是完全免费的么?
    - 答: 是的, 对于个人用户来说，这个solver是完全开源并且免费的。
@@ -68,3 +66,12 @@ icybee@yeah.net
 
 4. 问: 你撰写TexasSolver使用了什么框架？
    - A: 我使用了 QT 5.1.0 (开源版本) 构建了图形界面版本. 对于命令行版本，我试用了 Mingw + CMake.
+
+## 扑克策略
+
+- 当你的牌足够强的时候。
+- 当你的对手多半会弃牌的时候。
+- 当前面两种因素都不能匹配，但将两者综合考虑在一起会使下注是+EV的时候。
+- 当你的牌需要保护的时候。
+- 当你处于有利位置希望免费摊牌的时候。
+- 为了更好地掩饰你的牌力的时候。
