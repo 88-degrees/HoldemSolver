@@ -44,7 +44,7 @@ Piosolver and my TexasSolver(console version) run use the same settings (spr=10,
 |                                | Input config                                              | log                                                          | thread number | memory usage | accuracy | converge time |
 | ------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ | ------------- | ------------ | -------- | ------------- |
 | piosolver 1.0                  | [config_piosolver](benchmark/benchmark_piosolver.txt)     | [log_piosolver](benchmark/benchmark_outputs/piosolver_log.txt) | 6             | 492Mb        | 0.29%    | 242s          |
-| TexasSolver 0.1.0 (Our solver) | [config_texassolver](benchmark/benchmark_texassolver.txt) | [log_texassolver](benchmark/benchmark_outputs/texassolver_log.txt) | 6             | 1600Mb       | 0.275%   | 172s          |
+| TexasSolver 0.1.0              | [config_texassolver](benchmark/benchmark_texassolver.txt) | [log_texassolver](benchmark/benchmark_outputs/texassolver_log.txt) | 6             | 1600Mb       | 0.275%   | 172s          |
 
 The compare image of their results is  [here](benchmark/benchmark_outputs/result_compair.png). As you can see their result are very close.
 
@@ -54,7 +54,7 @@ The compare image of their results is  [here](benchmark/benchmark_outputs/result
 
 > Original Author's Email: icybee@yeah.net
 
-## Q & As
+## Q & A
 
 1. Q: Is the solver really free?
    - A: Yes, for personal users, the solver is completely opensourced and free.
@@ -66,7 +66,7 @@ The compare image of their results is  [here](benchmark/benchmark_outputs/result
    - A: If you intergate the release package(binary) into your software, Yes, you can do that. If you want to intergate the code of the solver into your software or provide service through internet, then you need to contact me for a commercial license, which is also the main profit-making method of this project.
 
 4. Q: What framework do you use to write the ui?
-   - A: I use QT 5.1.0 (opensourced edition) to build the GUI version. For the console version, I use Mingw + CMake.
+   - A: QT 5.1.0, Mingw & CMake.
 
 ## Game Theory Optimal (GTO) Texas Hold'em Poker Theory
 
