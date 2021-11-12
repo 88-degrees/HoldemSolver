@@ -1,17 +1,15 @@
-# Texas Hold'em Solver
+# Hold'em Solver
 
-[![release](https://img.shields.io/github/v/release/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/releases)
 [![license](https://img.shields.io/github/license/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/blob/master/LICENSE)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/console/TexasSolverTechDemo.ipynb)
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/TexasSolver/TexasSolver)
 
-README [English](README.md) | [中文](README.zh-CN.md)
+[English](README.md) | [中文](README.zh-CN.md)
 
 ## Introduction
 
-A open source Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more. Supports Windows, MacOs and Linux.
+Open source Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more. Supports Windows, MacOs and Linux.
 
-![](imgs/solver_example.gif)
+![Solver](imgs/solver_example.gif)
 
 Features:
 
@@ -24,10 +22,6 @@ Features:
 - It's the c++ version of [TexasHoldemSolverJava](https://github.com/bupticybee/TexasHoldemSolverJava) with a ton of optimization, it's 5x faster than the java version and takes less than 1/3 memory.
 
 Feel free to mess with a toy solver [in google colab](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/console/TexasSolverTechDemo.ipynb)
-
-## Install
-
-Download package according to your OS in [release package](https://github.com/bupticybee/TexasSolver/releases), unzip it, and install is done. It's that simple.
 
 ## GUI version Usage
 
