@@ -60,7 +60,7 @@ The compare image of their results is  [here](benchmark/benchmark_outputs/result
    - A: If you intergate the release package(binary) into your software, Yes, you can do that. If you want to intergate the code of the solver into your software or provide service through internet, then you need to contact me for a commercial license, which is also the main profit-making method of this project.
 
 4. Q: What framework do you use to write the ui?
-   - A: QT 5.1.0, Mingw & CMake.
+   - A: QT 6.2.1, Mingw & CMake.
 
 ## Game Theory Optimal (GTO) Texas Hold'em Poker Theory
 
