@@ -1,19 +1,18 @@
 # 德州扑克解牌局
 
-[![release](https://img.shields.io/github/v/release/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/releases)
 [![license](https://img.shields.io/github/license/bupticybee/TexasSolver?style=flat-square)](https://github.com/bupticybee/TexasSolver/blob/master/LICENSE)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/console/TexasSolverTechDemo.ipynb)
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/TexasSolver/TexasSolver)
 
-README [English](README.md) | [中文](README.zh-CN.md)
+[English](README.md) | [中文](README.zh-CN.md)
 
-## 项目介绍
+## 介绍
 
-开源的德州扑克解牌局, 看看这个 [介绍视频](https://www.bilibili.com/video/BV1sr4y1C7KE) 了解更多。支持Windows，MacOs和Linux。
+开源的德州扑克解牌局。[介绍视频](https://www.bilibili.com/video/BV1sr4y1C7KE) 了解更多。支持Windows，MacOs和Linux。
 
 ![](imgs/solver_example.gif)
 
-Features:
+### 特点
+
 - 对于 1~2 bet + allin的游戏树求解速度超过 piosolver 
 - 支持 Mac, Linux and Windows平台
 - 支持德州扑克和短牌
@@ -55,7 +54,7 @@ Features:
 
 ## 常见问题
 
-1. 问：这个应用真的是完全免费的么?
+1. 问：这个应用是完全免费的么?
    - 答：是的, 对于个人用户来说，这个应用是完全开源并且免费的。
 
 2. 问：我可以把这个应用上传到其他网站/微信 qq 群或者分享给我的朋友么？
@@ -65,7 +64,7 @@ Features:
    - 答：如果你只是将软件的二进制文件整合进你的软件，那么可以，但是你仍然不可以分发TexasSolver的二进制文件。如果你想要将TexasSolver的源码整合进你的商用软件中，或者你的软件对外提供基于互联网的服务，那么你需要联系我付费取得一张商用License，这也是这个项目主要的盈利方式。
 
 4. 问：应用使用了什么框架？
-   - 答：QT 5.1.0 ，Mingw 和 CMake 。
+   - 答：QT 6.2.1 ，Mingw 和 CMake 。
 
 ## 扑克策略
 
