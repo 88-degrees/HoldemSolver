@@ -34,3 +34,4 @@
 
 # QMake
 *.stash
+*.user
