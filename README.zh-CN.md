@@ -7,14 +7,14 @@
 
 ## 介绍
 
-开源的德州扑克解牌局。[介绍视频](https://www.bilibili.com/video/BV1sr4y1C7KE) 了解更多。支持Windows，MacOs和Linux。
+开源的德州扑克解牌局。[介绍视频](https://www.bilibili.com/video/BV1sr4y1C7KE) 了解更多。
 
 ![](imgs/solver_example.gif)
 
 ### 特点
 
 - 对于 1~2 bet + allin的游戏树求解速度超过 piosolver 
-- 支持 Mac, Linux and Windows平台
+- 支持 Mac OS, Linux and Windows平台
 - 支持德州扑克和短牌
 - 支持跨语言调用，支持 console 调用
 - 结果和 piosolver 对齐
