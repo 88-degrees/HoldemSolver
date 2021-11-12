@@ -7,19 +7,17 @@
 
 ## Introduction
 
-Open source Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more. Supports Windows, MacOs and Linux.
+Open source Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more.
 
 ![Solver](imgs/solver_example.gif)
 
-Features:
+### Features
 
 - In a tree with 1~2 bets + allin, it's speed exceeds piosolver on flop
-- Support Mac, Linux and Windows
-- Support texas holdem and shortdeck
-- Support cross language calls
-- Result aliged with piosolver
-- Support dump strategy to json file
-- It's the c++ version of [TexasHoldemSolverJava](https://github.com/bupticybee/TexasHoldemSolverJava) with a ton of optimization, it's 5x faster than the java version and takes less than 1/3 memory.
+- Support Mac OS, Linux and Windows
+- Support Texas Hold'em and Short Deck
+- Result aliged with PioSolver
+- Support export a strategy to a JSON file
 
 Feel free to mess with a toy solver [in google colab](https://colab.research.google.com/github/bupticybee/TexasSolver/blob/console/TexasSolverTechDemo.ipynb)
 
