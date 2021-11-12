@@ -75,9 +75,7 @@ float BestResponse::printExploitability(shared_ptr<GameTreeNode> root,
 float BestResponse::getBestReponseEv(shared_ptr<GameTreeNode> node, int player,
                                      vector<vector<float>> reach_probs,
                                      uint64_t initialBoard, int deal) {
-  // 
   float ev = 0;
-  //考虑（1）相对的手牌 proability,(2)被场面和对手ban掉的手牌
   const vector<float> &private_cards_evs =
       bestResponse(node, player, reach_probs, initialBoard, deal);
   vector<PrivateCards> &player_combo = this->private_combos[player];
