@@ -7,7 +7,7 @@
 
 ## Introduction
 
-Open source Texas Hold'em and short deck solver. See this [Introduction video](https://www.youtube.com/watch?v=MydczBwSfWc) for more.
+Open source Texas Hold'em and short deck solver.
 
 ![Solver](imgs/solver_example.gif)
 
