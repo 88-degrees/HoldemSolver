@@ -82,3 +82,6 @@ Poker Range (of possible 2-card hands)
 
 - [MasterClass Staff. “Learn About Poker: What Is GTO (Game Theory Optimal)? – 2021.” MasterClass, MasterClass, 3 Sept. 2021](https://www.masterclass.com/articles/learn-about-poker-what-is-gto-game-theory-optimal#what-is-gto-poker)
 
+<a href="https://donate.cafe/Solver">
+  <img style="width:99px" src="https://newbie.zeromesh.net/donate.7.6.svg" />
+</a>
