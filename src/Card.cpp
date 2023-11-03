@@ -52,23 +52,23 @@ string Card::intCard2Str(int card) {
 }
 
 uint64_t Card::boardCards2long(vector<string> cards) {
-  vector<Card> cards_objs(cards.size());
-  for (int i = 0; i < cards.size(); i++) {
-    cards_objs[i] = Card(cards[i]);
-  }
-  return Card::boardCards2long(cards_objs);
+    vector<Card> cards_objs(cards.size());
+    for(std::size_t i = 0;i < cards.size();i++){
+        cards_objs[i] = Card(cards[i]);
+    }
+    return Card::boardCards2long(cards_objs);
 }
 
 uint64_t Card::boardCard2long(Card& card) {
   return Card::boardInt2long(card.getCardInt());
 }
 
-uint64_t Card::boardCards2long(vector<Card>& cards) {
-  std::vector<int> board_int(cards.size());
-  for (int i = 0; i < cards.size(); i++) {
-    board_int[i] = Card::card2int(cards[i]);
-  }
-  return Card::boardInts2long(board_int);
+uint64_t Card::boardCards2long(vector<Card>& cards){
+    std::vector<int> board_int(cards.size());
+    for(std::size_t i = 0;i < cards.size();i++){
+        board_int[i] = Card::card2int(cards[i]);
+    }
+    return Card::boardInts2long(board_int);
 }
 
 QString Card::boardCards2html(vector<Card>& cards) {
@@ -122,22 +122,21 @@ vector<int> Card::long2board(uint64_t board_long) {
   return board;
 }
 
-vector<Card> Card::long2boardCards(uint64_t board_long) {
-  vector<int> board = long2board(board_long);
-  vector<Card> board_cards(board.size());
-  for (int i = 0; i < board.size(); i++) {
-    int one_board = board[i];
-    board_cards[i] = Card(intCard2Str(one_board));
-  }
-  if (board_cards.size() < 1 || board_cards.size() > 7) {
-    throw runtime_error(tfm::format("board length not correct, board length %s",
-                                    board_cards.size()));
-  }
-  vector<Card> retval(board_cards.size());
-  for (int i = 0; i < board_cards.size(); i++) {
-    retval[i] = board_cards[i];
-  }
-  return retval;
+vector<Card> Card::long2boardCards(uint64_t board_long){
+        vector<int> board = long2board(board_long);
+        vector<Card> board_cards(board.size());
+        for(std::size_t i = 0;i < board.size();i ++){
+            int one_board = board[i];
+            board_cards[i] = Card(intCard2Str(one_board));
+        }
+        if (board_cards.size() < 1 || board_cards.size() > 7){
+            throw runtime_error(tfm::format("board length not correct, board length %s",board_cards.size()));
+        }
+        vector<Card> retval(board_cards.size());
+        for(std::size_t i = 0;i < board_cards.size();i ++){
+            retval[i] = board_cards[i];
+        }
+        return retval;
 }
 
 string Card::suitToString(int suit) {

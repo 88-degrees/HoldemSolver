@@ -8,21 +8,23 @@ CommandLineTool::CommandLineTool(string mode,string resource_dir) {
     string suits = "c,d,h,s";
     string ranks;
     this->resource_dir = resource_dir;
-    string compairer_file;
+    string compairer_file,compairer_file_bin;
     int lines;
     if(mode == "holdem"){
         ranks = "2,3,4,5,6,7,8,9,T,J,Q,K,A";
         compairer_file = this->resource_dir + "/compairer/card5_dic_sorted.txt";
+        compairer_file_bin = this->resource_dir + "/compairer/card5_dic_zipped.bin";
         lines = 2598961;
     }else if(mode == "shortdeck"){
         ranks = "6,7,8,9,T,J,Q,K,A";
         compairer_file = this->resource_dir + "/compairer/card5_dic_sorted_shortdeck.txt";
+        compairer_file_bin = this->resource_dir + "/compairer/card5_dic_zipped_shortdeck.bin";
         lines = 376993;
     }else{
         throw runtime_error(tfm::format("mode not recognized : ",mode));
     }
     string logfile_name = "../resources/outputs/outputs_log.txt";
-    this->ps = PokerSolver(ranks,suits,compairer_file,lines);
+    this->ps = PokerSolver(ranks,suits,compairer_file,lines,compairer_file_bin);
 
     StreetSetting gbs_flop_ip = StreetSetting(vector<float>{},vector<float>{},vector<float>{},true);
     StreetSetting gbs_turn_ip = StreetSetting(vector<float>{},vector<float>{},vector<float>{},true);
@@ -134,7 +136,7 @@ void CommandLineTool::processCommand(string input) {
 
         if(bet_type == "bet" || bet_type == "raise" || bet_type == "donk"){
             sizes->clear();
-            for(int i = 3;i < params.size();i ++ ){
+            for(std::size_t i = 3;i < params.size();i ++ ){
                 sizes->push_back(stof(params[i]));
             }
         }
@@ -165,6 +167,7 @@ void CommandLineTool::processCommand(string input) {
                 -1,
                 this->accuracy,
                 this->use_isomorphism,
+                0, // TODO: enable half float option for command line tool
                 this->thread_number
         );
     }else if(command == "dump_result"){
