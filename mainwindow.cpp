@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     qSolverJob->setContext(this->getLogArea());
     qSolverJob->current_mission = QSolverJob::MissionType::LOADING;
     qSolverJob->start();
-    this->setWindowTitle(tr("TexasSolver"));
+    this->setWindowTitle(tr("Hold'em Solver"));
 
   // parameters tree view
   QStringList filters;
