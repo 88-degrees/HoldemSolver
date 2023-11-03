@@ -229,8 +229,23 @@ void GameTree::buildAction(shared_ptr<ActionNode> root,Rule rule,string last_act
                 else if (player == 1) nextrule.oop_commit += one_betting_size;
                 else runtime_error("unknown player");
                 shared_ptr<GameTreeNode> nextnode = make_shared<ActionNode>(vector<GameActions>(), vector<shared_ptr<GameTreeNode>>(),nextplayer,GameTreeNode::intToGameRound(rule.current_round),(double) rule.get_pot(),root);
+                // Calculate the raise size rather than amount being
+                // added to the pot. Do this by ascending the tree until
+                // reach a CHANCE node (or no parent) and extract the pot
+                // size from it. This can then be used to calculate raise
+                shared_ptr<GameTreeNode> roundroot = nextnode;
+                while(roundroot->getParent() && roundroot->getType() != GameTreeNode::GameTreeNodeType::CHANCE) {
+                    roundroot = roundroot->getParent();
+                }
+                double raiseto;
+                double commit = player == 0 ? nextrule.ip_commit : nextrule.oop_commit;
+                if(roundroot) {
+                    raiseto = commit - roundroot->getPot()/2;
+                } else {
+                    raiseto = one_betting_size;
+                }
                 this->__build(nextnode,nextrule,"raise",0,raise_times + 1);
-                actions.push_back(GameActions(GameTreeNode::PokerActions::RAISE,one_betting_size));
+                actions.push_back(GameActions(GameTreeNode::PokerActions::RAISE,raiseto));
                 childrens.push_back(nextnode);
             }
 
@@ -353,7 +368,7 @@ GameTree::generateActionNode(json meta, vector<string> childrens_actions, vector
     vector<shared_ptr<GameTreeNode>> childrens;
 
     // 遍历所有children actions 来生成GameAction 的list，用于初始化ActionNode
-    for(int i = 0;i < childrens_actions.size();i++){
+    for(std::size_t i = 0;i < childrens_actions.size();i++){
         string one_action = childrens_actions[i];
         json one_children_map = childrens_nodes[i];
         if(one_action.empty()) throw runtime_error("action is null");
@@ -456,7 +471,7 @@ shared_ptr<ShowdownNode> GameTree::generateShowdownNode(json meta, string round,
 shared_ptr<TerminalNode> GameTree::generateTerminalNode(json meta, string round, shared_ptr<GameTreeNode> parent) {
     vector<double> player_payoff_list = meta["payoff"];
     vector<double> player_payoff(player_payoff_list.size());
-    for(int one_player = 0;one_player < player_payoff_list.size();one_player ++){
+    for(std::size_t one_player = 0;one_player < player_payoff_list.size();one_player ++){
 
         double tmp_payoff = player_payoff_list[one_player];
         player_payoff[one_player] = tmp_payoff;
@@ -512,7 +527,7 @@ long long GameTree::re_estimate_tree_memory(const shared_ptr<GameTreeNode>& node
         vector<GameActions> actions = action_node->getActions();
 
         long long retnum = 0;
-        for(int i = 0;i < childrens.size();i++){
+        for(std::size_t i = 0;i < childrens.size();i++){
             shared_ptr<GameTreeNode> one_child = childrens[i];
             retnum += re_estimate_tree_memory(one_child,deck_num, p1range_num, p2range_num, num_current_deal);
         }
@@ -540,7 +555,7 @@ void GameTree::recurrentPrintTree(const shared_ptr<GameTreeNode>& node, int dept
         vector<shared_ptr<GameTreeNode>> childrens = action_node->getChildrens();
         vector<GameActions> actions = action_node->getActions();
 
-        for(int i = 0;i < childrens.size();i++){
+        for(std::size_t i = 0;i < childrens.size();i++){
             shared_ptr<GameTreeNode> one_child = childrens[i];
             GameActions one_action = actions[i];
 
@@ -560,11 +575,11 @@ void GameTree::recurrentPrintTree(const shared_ptr<GameTreeNode>& node, int dept
         )) << endl;
 
         prefix += "\t";
-        for(int i = 0;i < showdown_node->get_payoffs(ShowdownNode::ShowDownResult::TIE,-1).size();i++) {
+        for(std::size_t i = 0;i < showdown_node->get_payoffs(ShowdownNode::ShowDownResult::TIE,-1).size();i++) {
             cout << (tfm::format("%sif player %s wins, payoff :", prefix,i));
             vector<double> payoffs = showdown_node->get_payoffs(ShowdownNode::ShowDownResult::NOTTIE, i);
 
-            for (int player_id = 0; player_id < payoffs.size(); player_id++) {
+            for (std::size_t player_id = 0; player_id < payoffs.size(); player_id++) {
                 cout << (
                         tfm::format(" p%s %s ", player_id, payoffs[player_id])
                 );
@@ -574,7 +589,7 @@ void GameTree::recurrentPrintTree(const shared_ptr<GameTreeNode>& node, int dept
         cout << (tfm::format("%sif Tie, payoff :", prefix));
         vector<double> payoffs = showdown_node->get_payoffs(ShowdownNode::ShowDownResult::TIE, -1);
 
-        for (int player_id = 0; player_id < payoffs.size(); player_id++) {
+        for (std::size_t player_id = 0; player_id < payoffs.size(); player_id++) {
             cout << (
                     tfm::format(" p%s %s ", player_id, payoffs[player_id])
             );
@@ -592,7 +607,7 @@ void GameTree::recurrentPrintTree(const shared_ptr<GameTreeNode>& node, int dept
         cout << (tfm::format("%sTerminal payoff :", prefix));
         vector<double> payoffs = terminal_node->get_payoffs();
 
-        for (int player_id = 0; player_id < payoffs.size(); player_id++) {
+        for (std::size_t player_id = 0; player_id < payoffs.size(); player_id++) {
             cout <<(
                     tfm::format("p%s %s ", player_id, payoffs[player_id])
             );
@@ -683,7 +698,7 @@ vector<double> GameTree::get_possible_bets(shared_ptr<ActionNode> root, int play
         }
         possible_amounts = tmp_vector;
     }else{
-        float gap = rule.get_commit(player) - rule.get_commit(next_player);
+        float gap = rule.get_commit(next_player) - rule.get_commit(player);
         vector<double> tmp_vector;
         for(double val:possible_amounts){
             if(val >= gap * 2)tmp_vector.push_back(val);
