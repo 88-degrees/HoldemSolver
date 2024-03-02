@@ -52,10 +52,10 @@ The compare image of their results is  [here](benchmark/benchmark_outputs/result
    - A: Yes, for personal users, the solver is completely opensourced and free.
 
 2. Q: Can I upload it to other websites or forums? Can I share it with my friend?
-   - A: No, you can only put the link of this project to other website, not the binary, this project is under AGPL-V3 license, and these kind of action violates this license.
+   - A: No, you can only put the link of this project to other website, not the binary, this project is under AGPL-V3 license, and these kind of actions violates this license.
 
-3. Q: Can I intergate it to my software?
-   - A: If you intergate the release package(binary) into your software, Yes, you can do that. If you want to intergate the code of the solver into your software or provide service through internet, then you need to contact me for a commercial license, which is also the main profit-making method of this project.
+3. Q: Can I integrate it to my software?
+   - A: If you integrate the release package (binary) into your software, Yes, you can do that. If you want to integrate the code of the solver into your software or provide service through internet, then you need to contact me for a commercial license, which is also the main profit-making method of this project.
 
 4. Q: What framework do you use to write the ui?
    - A: QT 6.2.1, Mingw & CMake.
